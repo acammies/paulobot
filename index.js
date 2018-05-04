@@ -2,6 +2,19 @@ const TeleBot = require('telebot');
 const TOKEN = process.env.TOKEN;
 const bot = new TeleBot(TOKEN);
 
+bot.on('/help', (msg) => {
+    console.log(`/help triggered`)
+    return bot.sendMessage(
+        msg.chat.id, (`
+            Welcome to PauloBot \u{1F602}, here are some of the things I can do:
+            I should already be configured to welcome any new user added to the group (along with a few others hahaha \u{1F602} )
+            I also say goodbye \u{1F62D} to anyone who leaves the group
+            sending '/hello', '/start', or '/paulo' will send a default welcome message.
+            there are a few other commands hidden too! (Aidan was using them for testing and is too lazy to remove them)
+            contribute at 'https://github.com/acammies/paulobot'
+        `)
+    );
+});
 bot.on(['/hello', '/start', '/paulo'], (msg) => {
     console.log(`/hello, /start, /paulo triggered`)
     return bot.sendMessage(msg.chat.id, `Welcome, ${ msg.from.first_name } \u{1F602} !`);
@@ -63,6 +76,13 @@ bot.on('/sorry', (msg) => {
     return bot.sendMessage(msg.chat.id, `Sorry to hear about that Tom Pooge \u{1F62D} \u{1F62D} \u{1F62D} \u{1F62D} Paulo still loves you \u{2764} `);
 });
 
+bot.on('leftChatMember', (msg) => {
+    // console.log(msg)
+    // console.log(msg.left_chat_member)
+    console.log(`user left ${ msg.left_chat_member.first_name }`)
+    return bot.sendMessage(msg.chat.id, `Goodbye ${ msg.left_chat_member.first_name } \u{1F62D} `);
+});
+
 bot.on('newChatMembers', (msg) => {
     console.log(`newChatMembers called`)
     // console.log('hello world chat members?')
@@ -103,7 +123,9 @@ bot.on('newChatMembers', (msg) => {
         }
     }
     catch (error) {
+        console.log(`error is ` + error)
         return bot.sendMessage(msg.chat.id, `You broke me because of Aidan's poor error handling, I don't feel so good Mr Stark. \u{1F602} !`)
+        return bot.sendMessage(msg.chat.id, error)
     }
 })
 
