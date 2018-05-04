@@ -4,7 +4,6 @@
   "description": "A telegram bot for welcoming newcomers",
   "main": "index.js",
   "scripts": {
-    "test": "testPaulo",
     "start": "node index.js"
   },
   "repository": {
@@ -14,7 +13,9 @@
   "keywords": [
     "bot",
     "telegram",
-    "paulo"
+    "paulo",
+    "welcome",
+    "chatbot"
   ],
   "author": "Aidan Cammies",
   "license": "MIT",

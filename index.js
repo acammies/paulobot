@@ -1,15 +1,14 @@
 const TeleBot = require('telebot');
-const bot = new TeleBot('INSERT_TOKEN');
+const TOKEN = process.env.TOKEN;
+const bot = new TeleBot(TOKEN);
 
 bot.on(['/hello', '/start', '/paulo'], (msg) => {
-    return bot.sendMessage(msg.chat.id, `Welcome, ${ msg.from.first_name } \u{1F602} !`);
-});
-
-bot.on(['/hello', '/start', '/paulo'], (msg) => {
+    console.log(`/hello, /start, /paulo triggered`)
     return bot.sendMessage(msg.chat.id, `Welcome, ${ msg.from.first_name } \u{1F602} !`);
 });
 
 bot.on('/welcomeall', (msg) => {
+    console.log(`/welcomeall triggered`)
     return [
         bot.sendMessage(msg.chat.id,  `Welcome ${ msg.chat.first_name } \u{1F602}`),
         bot.sendMessage(msg.chat.id,  `Welcome Peter Fry \u{1F602}`),
@@ -21,7 +20,7 @@ bot.on('/welcomeall', (msg) => {
 });
 
 bot.on('/welcomeloop', (msg) => {
-    
+    console.log(`/welcomeloop triggered`)
     let messages = [
         `Welcome ${ msg.chat.first_name } `,
         `Welcome Peter Fry `,
@@ -31,7 +30,7 @@ bot.on('/welcomeloop', (msg) => {
         `Special welcome to Chris Brown ` 
     ]
     let messagesToSend = []
-
+    
     for (welcome in messages) {
         const ranNum = Math.floor(Math.random() * 20) + 1  
         let emojiBoi = ((ranNum < 6) ? ""  : "\u{1F602}")
@@ -39,28 +38,33 @@ bot.on('/welcomeloop', (msg) => {
         emojiBoi += (ranNum < 18) ? '': "\u{1F602}"
         bot.sendMessage(msg.chat.id, messages[welcome] + emojiBoi);
     }
-
+    
     // return messagesToSend;
 });
 
 bot.on('/welcomenew', (msg) => {
+    console.log(`/welcomenew triggered`)
     return bot.sendMessage(msg.chat.id, `Welcome, ${ msg.chat.first_name } \u{1F602} !`);
 });
 
 
 bot.on('/chatId', (msg) => {
+    console.log(`/chatId triggered`)
     return bot.sendMessage(msg.chat.id, `The Chat Id of this group is ` + msg.chat.id + ' ');
 });
 
 bot.on('/goodluck', (msg) => {
+    console.log(`/goodluck triggered`)
     return bot.sendMessage(msg.chat.id, `Good luck Tom Pooge \u{1F44D} \u{1F44D} \u{1F44D} \u{1F602} `);
 });
 
 bot.on('/sorry', (msg) => {
+    console.log(`/sorry triggered`)
     return bot.sendMessage(msg.chat.id, `Sorry to hear about that Tom Pooge \u{1F62D} \u{1F62D} \u{1F62D} \u{1F62D} Paulo still loves you \u{2764} `);
 });
 
 bot.on('newChatMembers', (msg) => {
+    console.log(`newChatMembers called`)
     // console.log('hello world chat members?')
     // console.log(msg.new_chat_members)
     // console.log(msg.new_chat_members[0])
@@ -89,6 +93,7 @@ bot.on('newChatMembers', (msg) => {
         // console.log(`whole messages block is: `)
         // console.log(messages)
         
+        
         for (welcome in messages) {
             const ranNum = Math.floor(Math.random() * 20) + 1  
             let emojiBoi = ((ranNum < 6) ? ""  : "\u{1F602}")
@@ -104,6 +109,7 @@ bot.on('newChatMembers', (msg) => {
 
 
 bot.on('error', (msg) => {
+    console.log(`error generated`)
     return bot.sendMessage(msg.chat.id, `You broke me because of Aidan's poor error handling, I don't feel so good Mr Stark. \u{1F602} !`)
 })
  
