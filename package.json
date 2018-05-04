@@ -1,0 +1,30 @@
+{
+  "name": "paulobot",
+  "version": "1.0.0",
+  "description": "A telegram bot for welcoming newcomers",
+  "main": "index.js",
+  "scripts": {
+    "test": "testPaulo",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acammies/paulobot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "paulo"
+  ],
+  "author": "Aidan Cammies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acammies/paulobot/issues"
+  },
+  "homepage": "https://github.com/acammies/paulobot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.85.0",
+    "telebot": "^1.2.6"
+  }
+}
