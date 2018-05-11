@@ -111,6 +111,19 @@ bot.on('/sorry', (msg) => {
     console.log(`/sorry triggered`)
     return bot.sendMessage(msg.chat.id, `Sorry to hear about that Tom Pooge \u{1F62D} \u{1F62D} \u{1F62D} \u{1F62D} Paulo still loves you \u{2764} `);
 });
+
+bot.on('/badinderpal', (msg) => {
+    console.log(`/badinderpal triggered`)
+    return bot.sendMessage(msg.chat.id, `inderpal--`);
+});
+
+
+
+bot.on('/vegan', (msg) => {
+    console.log(`/vegan triggered`)
+    return bot.sendMessage(msg.chat.id, `No steak, I am vegan now \u{1F602}`);
+});
+
 bot.on('/rhcsa', (msg) => {
     console.log(`/rhcsa triggered`)
     return bot.sendMessage(
