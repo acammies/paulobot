@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/acammies/paulobot#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "node-telegram-bot-api": "^0.30.0",
     "request": "^2.85.0",
     "telebot": "^1.2.6"
