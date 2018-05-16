@@ -119,9 +119,15 @@ bot.on('/badinderpal', (msg) => {
 
 
 
+
 bot.on('/vegan', (msg) => {
     console.log(`/vegan triggered`)
     return bot.sendMessage(msg.chat.id, `No steak, I am vegan now \u{1F602}`);
+});
+
+bot.on('/welcomeiwan', (msg) => {
+    console.log(`/vegan triggered`)
+    return bot.sendMessage(msg.chat.id, `Welcome to Red Hat Iwan \u{1F602}`);
 });
 
 bot.on('/rhcsa', (msg) => {
