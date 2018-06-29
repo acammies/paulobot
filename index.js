@@ -126,8 +126,13 @@ bot.on('/vegan', (msg) => {
 });
 
 bot.on('/welcomeiwan', (msg) => {
-    console.log(`/vegan triggered`)
+    console.log(`/iwan triggered`)
     return bot.sendMessage(msg.chat.id, `Welcome to Red Hat Iwan \u{1F602}`);
+});
+
+bot.on('/welcomeollie', (msg) => {
+    console.log(`/ollie triggered`)
+    return bot.sendMessage(msg.chat.id, `Welcome to The New House of fun Ollie! \u{1F602}`);
 });
 
 bot.on('/rhcsa', (msg) => {
